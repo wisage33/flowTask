@@ -1,34 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Telegram Mini App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <h1 id="greeting">Hello</h1>
-
-    <script>
-        // Инициализация Telegram Web App
-        const tg = window.Telegram.WebApp;
-        tg.ready();
-
-        // Получаем данные пользователя из initData
-        const user = tg.initDataUnsafe.user;
-
-        // Отправляем данные на Worker для проверки подписи
-        fetch('https://your-worker.your-subdomain.workers.dev/verify', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ initData: tg.initData })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.valid) {
-                document.getElementById('greeting').innerText = `Привет, ${user.first_name}!`;
-            } else {
-                document.getElementById('greeting').innerText = 'Ошибка проверки!';
-            }
-        });
-    </script>
+    <style>
+        body {
+            height: 100vh;
+            background-color: green;
+        }
+        
+    </style>
+    <h1>Hello world</h1>
 </body>
 </html>
